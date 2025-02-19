@@ -1,0 +1,35 @@
+name: Robot Code CI
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull requests to the main branch
+
+jobs:
+  run-robot-code:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Check out the repository code
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'  # Set the Python version if your robot code uses Python
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt  # Install any dependencies listed in requirements.txt
+
+    - name: Run robot code
+      run: |
+        python robot_script.py  # Replace with the command to run your robot code
+
+    - name: Run robot code
+      if: github.ref == 'refs/heads/main'  # Only run if the push is to the main branch
+      run: |
+        python robot_script.py
