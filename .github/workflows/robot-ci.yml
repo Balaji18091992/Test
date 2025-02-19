@@ -25,7 +25,7 @@ jobs:
 
     - name: Run robot code
       run: |
-        robot Registration form.robot  # Replace with the command to run your robot code
+        python robot_Registration form.robot  # Replace with the command to run your robot code
 
     - name: Run robot code
       if: github.ref == 'refs/heads/main'  # Only run if the push is to the main branch
