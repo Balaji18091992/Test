@@ -21,13 +21,11 @@ jobs:
       with:
         python-version: '3.9'  # Set the Python version if your robot code uses Python
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt  # Install any dependencies listed in requirements.txt
+
 
     - name: Run robot code
       run: |
-        python robot_script.py  # Replace with the command to run your robot code
+        python robot_Registration form.robot  # Replace with the command to run your robot code
 
     - name: Run robot code
       if: github.ref == 'refs/heads/main'  # Only run if the push is to the main branch
